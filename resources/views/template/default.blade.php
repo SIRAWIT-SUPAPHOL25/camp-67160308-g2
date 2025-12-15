@@ -3,7 +3,7 @@
 
 <head>
         <meta charset="utf-8" /> <!-- ช่วยแก้ให้เขียนภาษษไทยได้ -->
-        <title>Workshop HTML</title>
+        <title>Workshop HTML - @yield('title')</title>
         <link rel="stylesheet" href="css/bootstrap.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,11 +13,12 @@
         font-family: "Sarabun", sans-serif;
     }
     </style>
+    @stack('styles')
 </head>
 
 <body>
     <div class="container">
-        <h1>template/default.blade.php</h1>
+        <h1>@yield('header1')</h1>
         @yield('content')
     </div>
     @stack('scripts')
