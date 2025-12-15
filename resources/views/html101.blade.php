@@ -1,47 +1,54 @@
-@extends('template.default')
-@section('content')
-   <div class="container pt-5">
-    <h1>Workshop #HTML - FORM</h1>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>Workshop #html-form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
 
-    <form>
+<div class="container pt-5">
+    <h2 class="mb-4">Workshop #HTML - FORM</h2>
+
+    <form onsubmit="return checkForm();">
 
         <!-- ชื่อ -->
-        <div class="row align-items-center mt-3">
-            <div class="col-4">
-                <label for="fname" class="col-form-label">ชื่อ</label>
-            </div>
+        <div class="row mb-3">
+            <label class="col-4 col-form-label">ชื่อ</label>
             <div class="col-6">
-                <input type="text" id="fname" class="form-control" required>
+                <input type="text" id="fname" class="form-control">
             </div>
         </div>
 
         <!-- สกุล -->
-        <div class="row align-items-center mt-3">
-            <div class="col-4">
-                <label for="lname" class="col-form-label">สกุล</label>
-            </div>
+        <div class="row mb-3">
+            <label class="col-4 col-form-label">สกุล</label>
             <div class="col-6">
-                <input type="text" id="lname" class="form-control" required>
+                <input type="text" id="lname" class="form-control">
             </div>
         </div>
 
-        <!-- วันเดือนปีเกิด -->
-        <div class="row align-items-center mt-3">
-            <div class="col-4">
-                <label for="bdate" class="col-form-label">วัน/เดือน/ปีเกิด</label>
-            </div>
+        <!-- วันเกิด -->
+        <div class="row mb-3">
+            <label class="col-4 col-form-label">วันเดือนปีเกิด</label>
             <div class="col-6">
-                <input type="date" id="bdate" class="form-control" required>
+                <input type="date" id="bdate" class="form-control">
+            </div>
+        </div>
+
+        <!-- อายุ -->
+        <div class="row mb-3">
+            <label class="col-4 col-form-label">อายุ</label>
+            <div class="col-6">
+                <input type="number" id="age" class="form-control">
             </div>
         </div>
 
         <!-- เพศ -->
-        <div class="row align-items-center mt-3">
-            <div class="col-4">
-                <label class="col-form-label">เพศ</label>
-            </div>
+        <div class="row mb-3">
+            <label class="col-4 col-form-label">เพศ</label>
             <div class="col-6">
-                <select id="gender" class="form-select" required>
+                <select id="gender" class="form-select">
                     <option value="">-- เลือกเพศ --</option>
                     <option value="male">ชาย</option>
                     <option value="female">หญิง</option>
@@ -51,78 +58,86 @@
         </div>
 
         <!-- รูป -->
-        <div class="row align-items-center mt-3">
-            <div class="col-4">
-                <label for="photo" class="col-form-label">รูป</label>
-            </div>
+        <div class="row mb-3">
+            <label class="col-4 col-form-label">รูป</label>
             <div class="col-6">
-                <input type="file" id="photo" class="form-control" accept="image/*">
+                <input type="file" id="photo" class="form-control">
             </div>
         </div>
 
         <!-- ที่อยู่ -->
-        <div class="row align-items-start mt-3">
-            <div class="col-4">
-                <label for="address" class="col-form-label">ที่อยู่</label>
-            </div>
+        <div class="row mb-3">
+            <label class="col-4 col-form-label">ที่อยู่</label>
             <div class="col-6">
-                <textarea id="address" class="form-control" rows="3"></textarea>
+                <textarea id="address" class="form-control"></textarea>
             </div>
         </div>
 
         <!-- สีที่ชอบ -->
-        <div class="row align-items-center mt-3">
-            <div class="col-4">
-                <label for="favcolor" class="col-form-label">สีที่ชอบ</label>
-            </div>
+        <div class="row mb-3">
+            <label class="col-4 col-form-label">สีที่ชอบ</label>
             <div class="col-6">
                 <input type="color" id="favcolor" class="form-control form-control-color">
             </div>
         </div>
 
-        <!-- แนวเพลงที่ชอบ -->
-        <div class="row align-items-center mt-3">
-            <div class="col-4">
-                <label for="music" class="col-form-label">แนวเพลงที่ชอบ</label>
-            </div>
+        <!-- แนวเพลง -->
+        <div class="row mb-3">
+            <label class="col-4 col-form-label">แนวเพลงที่ชอบ</label>
             <div class="col-6">
                 <select id="music" class="form-select" multiple>
                     <option value="pop">Pop</option>
                     <option value="rock">Rock</option>
-                    <option value="hiphop">Hip-Hop</option>
-                    <option value="rnb">R&B</option>
-                    <option value="country">Country</option>
                     <option value="thai">เพลงไทย</option>
+                    <option value="hiphop">Hip-Hop</option>
                 </select>
                 <small class="text-muted">กด Ctrl เพื่อเลือกหลายรายการ</small>
             </div>
         </div>
 
         <!-- ยินยอม -->
-        <div class="row mt-3">
+        <div class="row mb-3">
             <div class="col-4"></div>
             <div class="col-6">
-                <input type="checkbox" id="agree" required>
-                <label for="agree">ยินยอมตามเงื่อนไข</label>
+                <input type="checkbox" id="agree">
+                <label>ยินยอมตามเงื่อนไข</label>
             </div>
         </div>
 
         <!-- ปุ่ม -->
-        <div class="row mt-4">
+        <div class="row">
             <div class="col-4"></div>
             <div class="col-6">
                 <button type="reset" class="btn btn-secondary">Reset</button>
-                <button type="submit" class="btn btn-primary">บันทึก</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>
 
     </form>
 </div>
 
-@endsection
-
-@push("scripts")
 <script>
-    console.log("it's work!")
+function checkForm() {
+    if (
+        fname.value === "" ||
+        lname.value === "" ||
+        bdate.value === "" ||
+        age.value === "" ||
+        gender.value === "" ||
+        photo.value === "" ||
+        address.value === "" ||
+        favcolor.value === "" ||
+        music.selectedOptions.length === 0 ||
+        !agree.checked
+    ) {
+        alert("❌ กรุณากรอกข้อมูลให้ครบทุกช่อง");
+        return false;
+    }
+
+    alert("✅ กรอกข้อมูลครบถ้วน ผ่านการตรวจสอบ");
+    return true;
+}
 </script>
-@endpush
+
+</body>
+</html>
