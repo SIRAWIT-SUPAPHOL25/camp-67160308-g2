@@ -9,14 +9,13 @@
 
 <div class="container pt-5">
     <h2 class="mb-4">Workshop #HTML - FORM</h2>
-
-    <form onsubmit="return checkForm();">
-
+    <form action="/workshop-form" method="POST" onsubmit="return checkForm();">
+        @csrf
         <!-- ชื่อ -->
         <div class="row mb-3">
             <label class="col-4 col-form-label">ชื่อ</label>
             <div class="col-6">
-                <input type="text" id="fname" class="form-control">
+               <input type="text" id="fname" name="fname" class="form-control">
             </div>
         </div>
 
@@ -24,7 +23,7 @@
         <div class="row mb-3">
             <label class="col-4 col-form-label">สกุล</label>
             <div class="col-6">
-                <input type="text" id="lname" class="form-control">
+                <input type="text" id="lname" name="lname" class="form-control">
             </div>
         </div>
 
@@ -32,7 +31,7 @@
         <div class="row mb-3">
             <label class="col-4 col-form-label">วันเดือนปีเกิด</label>
             <div class="col-6">
-                <input type="date" id="bdate" class="form-control">
+                <input type="date" id="bdate" name="bdate" class="form-control">
             </div>
         </div>
 
@@ -40,7 +39,7 @@
         <div class="row mb-3">
             <label class="col-4 col-form-label">อายุ</label>
             <div class="col-6">
-                <input type="number" id="age" class="form-control">
+                <input type="number" id="age" name="age" class="form-control">
             </div>
         </div>
 
@@ -48,7 +47,7 @@
         <div class="row mb-3">
             <label class="col-4 col-form-label">เพศ</label>
             <div class="col-6">
-                <select id="gender" class="form-select">
+                <select id="gender" name="gender" class="form-select">
                     <option value="">-- เลือกเพศ --</option>
                     <option value="male">ชาย</option>
                     <option value="female">หญิง</option>
@@ -69,7 +68,7 @@
         <div class="row mb-3">
             <label class="col-4 col-form-label">ที่อยู่</label>
             <div class="col-6">
-                <textarea id="address" class="form-control"></textarea>
+                <textarea id="address" name="address" class="form-control"></textarea>
             </div>
         </div>
 
@@ -77,7 +76,7 @@
         <div class="row mb-3">
             <label class="col-4 col-form-label">สีที่ชอบ</label>
             <div class="col-6">
-                <input type="color" id="favcolor" class="form-control form-control-color">
+                <input type="color" id="favcolor" name="favcolor" class="form-control form-control-color">
             </div>
         </div>
 
@@ -85,7 +84,7 @@
         <div class="row mb-3">
             <label class="col-4 col-form-label">แนวเพลงที่ชอบ</label>
             <div class="col-6">
-                <select id="music" class="form-select" multiple>
+                <select id="music" name="music[]" multiple>
                     <option value="pop">Pop</option>
                     <option value="rock">Rock</option>
                     <option value="thai">เพลงไทย</option>
@@ -99,7 +98,7 @@
         <div class="row mb-3">
             <div class="col-4"></div>
             <div class="col-6">
-                <input type="checkbox" id="agree">
+                <input type="checkbox" id="agree" name="agree" value="1">
                 <label>ยินยอมตามเงื่อนไข</label>
             </div>
         </div>
