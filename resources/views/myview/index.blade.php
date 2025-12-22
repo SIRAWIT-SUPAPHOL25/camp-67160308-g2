@@ -3,7 +3,7 @@
 @section('header1', "My View")
 
 @section('content')
-    <form action="#" method="GET">
+    <form action="#" method="POST">
         @csrf
         <label for="num">ป้อนข้อมูลแม่สูตรคูณ</label>
         <input type="number" id="num"
