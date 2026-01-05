@@ -8,12 +8,11 @@ use App\Models\Flight;
 class FlightController extends Controller
 {
     //
-
-    private function insert_db(){
-        echo "Controller";
+    private function insert_db()
+    {
         $flight = new Flight;
         $flight->name = "Test Insert Flight";
-        $flight->airline ="TestAirLine";
+        $flight->airline = "TestAirline";
         $flight->number_of_planes = 10;
         $flight->price_per_ticket = 50.0;
         $flight->save();
@@ -21,7 +20,7 @@ class FlightController extends Controller
 
     private function update_db(){
         $flight = Flight::find(1);
-        $flight-> name = "Test Update Flight";
+        $flight->name = "Test Update Flight";
         $flight->save();
     }
 
@@ -30,8 +29,43 @@ class FlightController extends Controller
         $flight->delete();
     }
 
-    function index(){
-        // $data['flight']
-        return view('flight.index');
+    function index()
+    {
+        $data['flights'] = Flight::all();
+        return view('flight.index', $data);
     }
+
+    function store(Request $req){
+        $flight = new Flight;
+        $flight->name = $req->input('name');
+        $flight->airline = $req->input('airline');
+        $flight->number_of_planes = $req->input('number_of_planes');
+        $flight->price_per_ticket = $req->input('price_per_ticket');
+        $flight->save();
+        return redirect('/flights');
+    }
+
+    function update($id){
+        $data['flight_update'] = Flight::find($id);
+        $data['flights'] = Flight::all();
+        return view('flight.update', $data);
+    }
+
+    function update_action(Request $req, $id){
+        $flight = Flight::find($id);
+        $flight->name = $req->input('name');
+        $flight->airline = $req->input('airline');
+        $flight->number_of_planes = $req->input('number_of_planes');
+        $flight->price_per_ticket = $req->input('price_per_ticket');
+        $flight->save();
+        return redirect('/flights');
+    }
+
+    function delete_action(Request $req, $id){
+        $flight = Flight::find($id);
+        $flight->delete();
+        return redirect('/flights');
+    }
+
+
 }

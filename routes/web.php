@@ -17,6 +17,9 @@ Route::post('/workshop-form', [App\Http\Controllers\WorkshopFormController::clas
 
 // Route::get('/flights', [App\Htpp\Controllers\FlightController::class, 'index']);
 Route::namespace('App\Http\Controllers')->group(function(){
-    Route::get('/flights','FlightController@index');
-    // Route::post('flight')
+    Route::get('/flights', 'FlightController@index');
+    Route::get('/flight/{id}', 'FlightController@update');
+    Route::post('/flight', 'FlightController@store');
+    Route::put('/flight/{id}', 'FlightController@update_action');
+    Route::delete('/flight/{id}', 'FlightController@delete_action');
 });
