@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PokedexController;
 
 Route::get('/', function () {
     return view('html101');
@@ -23,3 +24,10 @@ Route::namespace('App\Http\Controllers')->group(function(){
     Route::put('/flight/{id}', 'FlightController@update_action');
     Route::delete('/flight/{id}', 'FlightController@delete_action');
 });
+
+Route::get('/pokedex', [PokedexController::class, 'index']);
+Route::post('/pokedex', [PokedexController::class, 'store']);
+Route::get('/pokedex/{id}/edit', [PokedexController::class, 'edit']);
+Route::post('/pokedex/{id}/update', [PokedexController::class, 'update']);
+Route::get('/pokedex/{id}/delete', [PokedexController::class, 'destroy']);
+
